@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='eng'>
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>Assignment 4.2</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!---Creating our button for the Delete request-->
+   <h4> HTTP Delete Request </h4>
+
+   <button id='delete'> Delete Me </button>
+
+</body>
+
+<script>
+$(function () {
+    // creating our onClick event for our delete requrest, passing a function to the onClick even which will execute the delete request and log the results
+    $('#delete').click(function(){
+        $.ajax({
+            url: 'http://httpbin.org/delete',
+            dataType: "json",
+            type: "DELETE",
+            data:{username: 'login', password: 'helloGorgeousPassword', email: 'dearwendy714@hackers.com'},
+            success: function(data, status){
+                console.log('Username ' + data.form.username + '\nPassword: ' +
+                data.form.password + '\nEmail: ' + data.form.email + '\nStatus: ' + status);
+            }
+        })
+    })
+})
+</script>
+
+</html>
