@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <!-- jquery Reference Library -->
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/5DACB2B0-5003-6543-8B39-D8EE6E4FC44C/main.js"
+      charset="UTF-8"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+
+  </head>
+
+  <body>
+
+    <nav class = 'navbar navbar-dark bg-dark'>
+        <a href='#' class = 'navbar-brand'>Home</a>
+    </nav>
+
+    <br><br>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                    <h2>Exercise 5.2 - jQuery Proxy Example</h2>
+
+                    <button id='btn-1'>Show</button>
+
+                    <br><span id='proxy'></span>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    $(function() {
+        // object literal deathStar object
+
+        var dog = {
+            name: 'Bailey',
+            age: '9 months',
+            weight: '60 lbs',
+        // this display function gets called on the #btn click
+
+            display: function() {
+                $('#proxy').html('');
+                $('#proxy').append('<br> Name: ' + this.name + '<br>Age: ' + this.age + '<br>Weight: ' + this.weight);
+            }
+        };
+        // when the button is clicked, use the proxy method to get Bailey object and display function
+
+        $('#btn-1').click($.proxy(dog, 'display'));
+    });
+
+    </script>
+    <img src="image/Bailey.jpg" alt="Bailey" width="500" height="600">
+
+
+  </body>
+</html>
