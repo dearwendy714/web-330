@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Exercise 6.3</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+	<script src="../knockout-min.js"></script>
+	<script src="../header2.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home</a> </li>
+			<li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+			<li class="nav-item"> <a class="nav-link" href="#">Contact Us</a> </li>
+		</ul>
+	</nav>
+
+<div role="main" class="container">
+	<div id="outputHeader"></div>
+	<script>
+		// Output the header to the page
+		var header = header("Wendy", "Portillo", "Exercise 6.3");
+		var outputHeader = document.getElementById('outputHeader');
+		outputHeader.innerHTML = header;
+	</script>
+
+	<h2>Person View Model</h2>
+	<!-- Create a person view model with three properties -->
+	<div class="form-group">
+		<label for="txtFirstName">First Name</label>
+		<input id="txtFirstName" type="text" class="form-control alert-warning" data-bind="value: firstName">
+	</div>
+
+	<div class="form-group">
+		<label for="txtLastName">Last Name</label>
+		<input id="txtLastName" type="text" class="form-control alert-warning" data-bind="value: lastName">
+	</div>
+
+	<div class="form-group">
+		<label for="txtEmailAddress">Email Address</label>
+		<input id="txtEmailAddress" type="text" class="form-control alert-warning" data-bind="value: email">
+	</div>
+</div>
+
+<script>
+	// Create a Person ViewModel Object Literal
+	var personViewModel = {
+		// Set values
+		firstName: "Wendy",
+		lastName: "Portillo",
+		email: "dearwendy714@myemail.com"
+	};
+	// Apply binding
+	ko.applyBindings(personViewModel);
+</script>
+
+</body>
+</html>
