@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="author" content="Kurt Leadley, Karie Funk, Wendy Portillo">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JS Quiz</title>
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/knockout-3.5.0.js"></script>
+        <!-- Stylesheet - Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+            integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <!-- bootstrap overrides -->
+        <link rel="stylesheet" href="styles/style.css" />
+    </head>
+    <body>
+        <header id='top'>
+            <h1>Test Your JS Knowledge</h1>
+        </header>
+        <main>
+            <p id="intro"><i>JavaScript web quiz created by the HTML Assassins</i></p>
+            <section id='results-container'>
+                <p id="results-text-one">Yay! You're Done!</p>
+                <p id="results-text-two"><i>Here are the results from your quiz:</i></p>
+                <p id="results-score"></p>
+                <h3 id="results-score-percentage"></h3>
+                <p id="results-rank"></p>
+            </section>
+            <!-- this section is observed and manipulated by the QuizViewModel -->
+            <section data-bind="foreach: Questions" class='questions-container'>
+                <section data-bind="attr: {'id': 'q'+questionNum, 'class':'question-container'}">
+                    <div data-bind="attr: {'id':'question-q'+questionNum, 'class':'question'} , text:question"></div>
+                    <div data-bind="attr: {'id':'answer-one-q'+questionNum, 'class':'answer'} , text:a1, click: $root.selectAnswer"></div>
+                    <div data-bind="attr: {'id':'answer-two-q'+questionNum, 'class':'answer'} , text:a2, click: $root.selectAnswer"></div>
+                    <div data-bind="attr: {'id':'answer-three-q'+questionNum, 'class':'answer'} , text:a3, click: $root.selectAnswer"></div>                    
+                    <div data-bind="attr: {'id':'answer-four-q'+questionNum, 'class':'answer'} , text:a4, click: $root.selectAnswer"></div>
+                </section>
+            </section>       
+            <section class='buttons'>
+                <button data-bind="click: $root.restart" id = 'restart' type="button">Restart</button>
+                <button data-bind="click: $root.submit" id ='submit' type="button">Submit</button>
+            </section>
+            <p class='info'><i>Use the following tabs to go back and change your answer / view correct answers after submission</i></p>
+            <section class='q-tabs-container'>
+                <!--loads from q-tabs.js-->       
+            </section>
+        </main>
+        <footer>
+            <h3>&copy;2019 Web-330-Group-C: Kurt Leadley, Wendy Portillo, Karie Funk.</h3>
+            <a href='#top'>Back to top</a>
+        </footer>
+        <!-- load q-tab handler, data model and view model -->
+        <script src="js/q-tab.js"></script>
+        <script src="js/quiz-model.js"></script>
+        <script src="js/quiz-view-model.js"></script>
+    </body>
+</html>
