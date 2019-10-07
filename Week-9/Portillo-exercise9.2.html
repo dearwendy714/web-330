@@ -70,12 +70,13 @@
 
 
     <script>
-
+	    // Employee constructor function
         function Employee(id, name, salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;
       }
+      // Employee Model
       var EmployeeModel = Backbone.Model.extend({
         defaults: {
           id: "",
@@ -83,9 +84,12 @@
           salary: 0
         }
       });
+      // Create an Employee Collection by extending backbones collection class
       var EmployeeCollection = Backbone.Collection.extend({
         model: EmployeeModel
       });
+
+      // Add new employees to the collection
       var Employees = new EmployeeCollection();
       Employees.add(new Employee("1", "Ross Geller", 110000));
       Employees.add(new Employee("2", "Rachel Green", 130000));
@@ -93,6 +97,7 @@
       Employees.add(new Employee("4", "Monica Geller", 110000));
       Employees.add(new Employee("5", "Phoebe Buffay", 100000));
 
+	// Output values for each employee
 
       Employees.each(function(person) {
         $("#table-body").append(
